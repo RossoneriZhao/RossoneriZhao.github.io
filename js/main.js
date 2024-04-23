@@ -156,7 +156,7 @@ $("#social").mouseover(function () {
 });
 
 $("#github").mouseover(function () {
-    $("#link-text").html("Go Github");
+    $("#link-text").html("Go to Github");
 }).mouseout(function () {
     $("#link-text").html("Contact Me");
 });
@@ -171,7 +171,7 @@ $("#email").mouseover(function () {
     $("#link-text").html("Contact Me");
 });
 $("#telegram").mouseover(function () {
-    $("#link-text").html("Contact me at Feishu");
+    $("#link-text").html("Contact me with Feishu");
 }).mouseout(function () {
     $("#link-text").html("Contact Me");
 });
@@ -239,7 +239,7 @@ window.addEventListener('load', function () {
             //移动端隐藏更多页面
             $('#container').attr('class', 'container');
             $("#change").html("Hello&nbsp;World&nbsp;!");
-            $("#change1").html("一个建立于 21 世纪的小站，存活于互联网的边缘");
+            $("#change1").html("Using a desktop for better visual effect");
 
             //移动端隐藏弹窗页面
             $('#box').css("display", "none");
