@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .showcase {
+            min-height: 200px;
+            background: rgb(133, 133, 183);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 0;
+        }
+        .profile {
+            display: flex; /* Use Flexbox for alignment */
+            align-items: center; /* Vertically center the items */
+            justify-content: center; /* Horizontally center the items */
+        }
+        .showcase img {
+            width: auto; /* Maintain original aspect ratio */
+            max-width: 200px; /* Maximum width of the image */
+            height: auto; /* Adjust height based on width */
+            margin-right: 30px; /* Space between image and text */
+        }
+        .info {
+            text-align: left;
+        }
+        .info p {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .main {
+            padding: 20px;
+            background: #fff;
+        }
+        .text-center-main {
+            max-width: 700px; /* Max width for text content */
+            margin: 0 auto; /* Centering text inside the main area */
+            text-align: left; /* Text inside the container aligned to the left */
+            line-height: 1.6;
+        }
+        .text-center-pub {
+            max-width: 700px; /* Max width for text content */
+            margin: 0 auto; /* Centering text inside the main area */
+            text-align: left; /* Text inside the container aligned to the left */
+            line-height: 0.7;
+        }
+        .text-center {
+            max-width: 700px; /* Max width for text content */
+            margin: 0 auto; /* Centering text inside the main area */
+            text-align: left; /* Text inside the container aligned to the left */
+        }
+        .italic {
+            font-style: italic; /* Make text italic */
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .education-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .education-logo {
+            margin-right: 30px; /* Space between the logo and text */
+        }
+        .education-logo img {
+            width: 100px; /* Logo size */
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Juntu Zhao's Homepage</h1>
+        </div>
+    </header>
+
+    <section class="showcase">
+        <div class="container">
+            <div class="profile">
+                <img src="fig/me.PNG" alt="My Photo">
+                <div class="info">
+                    <h1>Juntu Zhao</h1>
+                    <p>Email: arossoneri@sjtu.edu.cn</p>
+                    <p>Tel: +86 13029385339</p>
+                    <p>Ph.D. Candidate at Shanghai Jiao Tong University</p>
+                    <p>Advisor: <a href="https://dequan.wang">Dequan Wang</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="text-center">
+            <h2>Education</h2>
+            <div class="education-section">
+                <div class="education-logo">
+                    <img src="fig/logo.png" alt="Logo">
+                </div>
+                <div>
+                    <p>Time: <span class="italic">Sept. 2023 - Present</span></p>
+                    <p>Degree: Ph.D. in Computer Science</p>
+                    <p>Institution: Shanghai Jiao Tong University</p>
+                </div>
+            </div>
+
+            <div class="education-section">
+                <div class="education-logo">
+                    <img src="fig/logo.png" alt="Logo">
+                </div>
+                <div>
+                    <p>Time: <span class="italic">Sept. 2018 - Jun. 2022</span></p>
+                    <p>Degree: B.S. in Artificial Intelligence</p>
+                    <p>Institution: Shanghai Jiao Tong University</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="main">
+        <div class="text-center-main">
+            <h2>About Me</h2>
+            <p>I'm Juntu Zhao, graduated with a bachelor's degree from the Artificial Intelligence Excellent Talents Pilot Class at Shanghai Jiao Tong University. I am an outstanding graduate of Shanghai Jiao Tong University and started pursuing Ph.D. at Qingyuan Artificial Intelligence Research Institute at Shanghai Jiao Tong University in September 2023. My research focuses on the life sciences empowered by artificial intelligence.</p>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="text-center-pub">
+            <h2>Publications</h2>
+            <p>&nbsp;</p>
+            <p class="bold">Lost in Translation: Latent Concept Misalignment in Text-to-Image Diffusion Models</p>
+            <p>Juntu Zhao, Junyu Deng*, Yixin Ye*, Chongxuan Li, Zhijie Deng, Dequan Wang</p>
+            <p class="italic">European Conference on Computer Vision (ECCV), 2024</p>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="text-center-main">
+            <h2>Athlete Career</h2>
+            <p>I am served as the captain, assistant coach, and sprint team leader of the Shanghai Jiao Tong University Track-and-Field Team, the record holder for the men's 4x100m race at Shanghai Jiao Tong University, with a 100m lead of 11.03s. I won the silver medal in the men's 4x100m relay at the 2019 Shanghai University Athletics Championships and finished fourth in the men's 100m race at the 2022 Shanghai University Games. Go to <a href="https://www.bilibili.com/video/BV1wFu7ewEyB/?vd_source=0fa934c6169a9709f158c4adb1ddbdce#reply112473654493184"><span class="italic">bilibili</span></a> for my ShowTime!</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Juntu Zhao. All rights reserved.</p>
+    </footer>
+</body>
+</html>
