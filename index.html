@@ -333,15 +333,20 @@
       .paper-right { align-self: flex-end; }
     }
 
-    @media (max-width: 680px){
-      .nav-inner { gap: 8px; }
-      .nav a { padding: 6px 8px; }
-      #home .bg-casa {
-        width: 70vw; height: 40vh;
-        transform: translate(20%, -15%);
-        filter: blur(22px) saturate(125%);
-        opacity: 0.28;
-      }
+    @media (max-width: 880px) {
+    /* 三个 section 的两列网格在窄屏都堆叠为一列，行为保持一致 */
+    .about-wrap, .edu-wrap, .paper-wrap { grid-template-columns: 1fr; }
+
+    /* 三种标题在窄屏的对齐和间距保持一致 */
+    .about-title, .edu-title, .paper-title {
+        position: static;
+        text-align: left;
+        margin-bottom: 8px;
+    }
+
+    /* Papers 与 Education 的卡片堆叠规则维持原样 */
+    .edu-card, .paper-card { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .paper-right, .edu-right { align-self: flex-end; }
     }
   </style>
 </head>
