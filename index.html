@@ -1,240 +1,500 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JT Zhao's Homepage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 30px 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        .showcase {
-            min-height: 200px;
-            background: rgb(133, 133, 183);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 50px 0;
-        }
-        .profile {
-            display: flex; /* Use Flexbox for alignment */
-            align-items: center; /* Vertically center the items */
-            justify-content: center; /* Horizontally center the items */
-        }
-        .showcase img {
-            width: auto; /* Maintain original aspect ratio */
-            max-width: 200px; /* Maximum width of the image */
-            height: auto; /* Adjust height based on width */
-            margin-right: 30px; /* Space between image and text */
-        }
-        .info {
-            text-align: left;
-        }
-        .info h1 {
-            font-size: 36px; /* Increase the font size for Juntu Zhao */
-            margin: 10px 0; /* Add margin for spacing */
-        }
-        .info p {
-            font-size: 20px;
-            margin: 5px 0;
-        }
-        .main {
-            padding: 20px;
-            background: #fff;
-        }
-        .text-center-main {
-            max-width: 700px; /* Max width for text content */
-            margin: 0 auto; /* Centering text inside the main area */
-            text-align: left; /* Text inside the container aligned to the left */
-            line-height: 1.6;
-        }
-        .text-center-pub {
-            max-width: 700px; /* Max width for text content */
-            margin: 0 auto; /* Centering text inside the main area */
-            text-align: left; /* Text inside the container aligned to the left */
-            line-height: 0.7;
-        }
-        .text-center {
-            max-width: 700px; /* Max width for text content */
-            margin: 0 auto; /* Centering text inside the main area */
-            text-align: left; /* Text inside the container aligned to the left */
-        }
-        .italic {
-            font-style: italic; /* Make text italic */
-        }
-        .bold {
-            font-weight: bold;
-        }
-        .education-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .education-logo {
-            margin-right: 30px; /* Space between the logo and text */
-        }
-        .education-logo img {
-            width: 100px; /* Logo size */
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: #fff;
-        }
-        .resume-links {
-            margin-top: 20px;
-            text-align: left;
-        }
-        .resume-links a {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 5px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .gray {
-            color: gray;
-        }
-        .publication-entry {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 10px;
-        }
-        .publication-index {
-            width: 5%;
-            text-align: center;
-            color: gray;
-        }
-        .publication-details {
-            width: 95%;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Casa JT Zhao</title>
+  <link rel="icon" type="image/svg+xml" href="fig/robot.svg" />
+  <style>
+    :root {
+      --nav-h: 64px;
+      --max-w: 1080px;
+      --bg: #eceae7;
+      --card: #eceae7;
+      --text: #2e2e2e;
+      --muted: #2e2e2e;
+      --accent: #2e2e2e;
+      --about-title: #101822;     /* “About” 深色标题 */
+      --about-underline: #9b1c1c; /* 米兰红下划线 */
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 48px 16px;      /* 稍微增大上下间距 */
+      font-size: 18px;         /* 字号更大、更稳重 */
+      font-weight: 500;        /* 加一点字重 */
+      letter-spacing: 0.3px;   /* 微调字间距，更现代 */
+    }
+
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Segoe UI Emoji";
+      overflow-y: scroll;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      color: #333;
+      z-index: 9999;
+    }
+    .nav-inner { width: min(100% - 24px, var(--max-w)); display: flex; align-items: center; gap: 16px; }
+    .nav a { padding: 8px 10px; border-radius: 8px; }
+    .nav a.active { background: rgba(255,255,255,.06); }
+
+    main { scroll-snap-type: y mandatory; }
+    section {
+      padding: calc(var(--nav-h) + 24px) 16px 48px;
+      width: 100%;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      scroll-margin-top: calc(var(--nav-h) + 16px);
+    }
+    .fullvh { min-height: 100vh; display: grid; place-items: center; scroll-snap-align: start; }
+
+    .card {
+      width: min(100%, var(--max-w));
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    h1,h2 { margin: 0 0 18px 0; line-height: 1.2; }
+    h1 { font-size: clamp(48px, 8vw, 96px); color: var(--text); }
+    h2 { font-size: clamp(22px, 3.5vw, 30px); color: var(--muted); font-weight: 600; }
+    p  { margin: 8px 0 0 0; color: var(--text); }
+
+    /* ---- Hero 部分（仅 Home 生效的虚化背景） ---- */
+    #home {
+      position: relative;
+      background: linear-gradient(180deg, rgba(155,205,255,.06), rgba(0,0,0,0));
+      overflow: hidden;
+    }
+    #home .bg-casa {
+      position: absolute;
+      top: 0; right: 0;
+      width: 900px; height: 600px;
+      background: url("fig/casa_milan.png") no-repeat center / cover;
+      -webkit-mask-image: radial-gradient(60% 60% at 60% 40%, rgba(0,0,0,0.95), rgba(0,0,0,0) 75%);
+      mask-image: radial-gradient(60% 60% at 60% 40%, rgba(0,0,0,0.95), rgba(0,0,0,0) 75%);
+      transform: translate(12%, -20%);
+      filter: blur(28px) saturate(135%);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero { position: relative; z-index: 1; }
+    .hero h1 { font-size: clamp(36px, 6vw, 64px); }
+    .hero p { font-size: clamp(16px, 2.4vw, 20px); max-width: 720px; }
+    .socials { display: flex; gap: 14px; margin-top: 18px; align-items: center; }
+    .socials a { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); }
+    .socials a:hover { background: rgba(255,255,255,.12); }
+    .hero-title { display: inline-flex; align-items: center; gap: 10px; }
+    .milan-logo { height: 1em; width: auto; vertical-align: middle; transform: translateY(1px); }
+
+    /* ---- About 布局 ---- */
+    #about {
+      display: flex;
+      justify-content: center;
+    }
+
+    #athlete {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-title {
+      top: calc(var(--nav-h) + 24px);
+      font-size: clamp(36px, 5vw, 56px); /* 调整为和 h1 一致大小 */
+      line-height: 1.1;
+      font-weight: 700; /* 降低字重 */
+      color: var(--about-title);
+      letter-spacing: 0.5px;
+      margin: 0;
+      text-align: left; /* 确保左对齐 */
+    }
+
+    .about-title::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 4px;
+      margin-top: 8px;
+      border-radius: 4px;
+      background: var(--about-underline);
+    }
+
+    .about-body {
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.8;
+      color: #334155;
+      letter-spacing: 0.2px;
+    }
+
+    .about-body p {
+      margin: 0 0 20px 0;
+    }
+
+    @media (max-width: 880px) {
+      .about-wrap { grid-template-columns: 1fr; }
+      .about-title { position: static; text-align: left; }
+    }
+
+
+    /* ---- Education 部分 ---- */
+    #education {
+      display: flex;
+      justify-content: center;
+    }
+
+    #papers {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-wrap,
+    .paper-wrap,
+    .edu-wrap {
+      width: min(100% - 60px, 1280px);
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: clamp(24px, 5vw, 56px);
+      align-items: start;
+    }
+
+    .edu-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--about-title);
+      text-align: left;
+    }
+
+    .edu-title::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 4px;
+      margin-top: 8px;
+      border-radius: 4px;
+      background: var(--about-underline);
+    }
+
+    /* 教育卡片列表 */
+    .edu-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .edu-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px 26px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .edu-left h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #0f172a;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .edu-left .school {
+      margin-top: 6px;
+      font-size: 17px;
+      color: #9b1c1c; /* 米兰红 */
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .edu-right {
+      font-size: 16px;
+      color: #6b7280;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    #papers a:hover {
+      text-decoration: none !important;
+    }
+
+    .paper-link {
+      text-decoration: none;
+      display: block;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .paper-link .card {
+      cursor: pointer;
+    }
+
+    .paper-link:hover {
+      transform: translateY(-4px);
+    }
+
+    .paper-link:hover .card {
+      box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+    }
+
+    @media (max-width: 880px) {
+      .edu-wrap { grid-template-columns: 1fr; }
+      .edu-card { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .edu-right { align-self: flex-end; }
+    }
+
+    .paper-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--about-title);
+      text-align: left;
+    }
+
+    .paper-title::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 4px;
+      margin-top: 8px;
+      border-radius: 4px;
+      background: var(--about-underline);
+    }
+
+    /* 教育卡片列表 */
+    .paper-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .paper-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px 26px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .paper-left h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #0f172a;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .author {
+      font-size: 20px;
+      color: #6b7280;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .paper-left .conference {
+      margin-top: 6px;
+      font-size: 17px;
+      color: #9b1c1c; /* 米兰红 */
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .paper-right {
+      font-size: 16px;
+      color: #6b7280;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    @media (max-width: 880px) {
+      .paper-wrap { grid-template-columns: 1fr; }
+      .paper-card { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .paper-right { align-self: flex-end; }
+    }
+
+    @media (max-width: 680px){
+      .nav-inner { gap: 8px; }
+      .nav a { padding: 6px 8px; }
+      #home .bg-casa {
+        width: 70vw; height: 40vh;
+        transform: translate(20%, -15%);
+        filter: blur(22px) saturate(125%);
+        opacity: 0.28;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Juntu Zhao's Homepage</h1>
-        </div>
-    </header>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#papers">Papers</a>
+      <a href="#athlete">Athlete</a>
+    </div>
+  </nav>
 
-    <section class="showcase">
-        <div class="container">
-            <div class="profile">
-                <img src="fig/me.PNG" alt="My Photo">
-                <div class="info">
-                    <h1>Juntu Zhao</h1>
-                    <p>Email: arossoneri@sjtu.edu.cn</p>
-                    <p>Tel: +86 13029385339</p>
-                    <p>Ph.D. Candidate at Shanghai Jiao Tong University</p>
-                    <p>Advisor: <a href="https://dequan.wang">Dequan Wang</a></p>
-                    <div class="resume-links">
-                        <a href="https://juntuzhao.run/doc/eng/cv.pdf">Curriculum Vitae ENG</a>
-                        <a href="https://juntuzhao.run/doc/chn/chn_cv.pdf">Curriculum Vitae CHN</a>
-                    </div>
-                </div>
-            </div>
+  <main>
+    <!-- Home -->
+    <section id="home" class="fullvh" aria-label="Home">
+      <div class="bg-casa"></div>
+      <div class="hero">
+        <h1 class="hero-title">
+          Hi, I’m Juntu Zhao
+          <img src="fig/milan.svg" alt="AC Milan" class="milan-logo" />
+        </h1>
+        <p>Ph.D. Student in Artificial Intelligence at Shanghai Jiao Tong University</p>
+        <div class="socials">
+          <a href="mailto:arossoneri@sjtu.edu.cn" title="Email"><img src="fig/email.svg" width="30" height="30" alt="Email" /></a>
+          <a href="https://x.com/JTZhao137036" target="_blank"><img src="fig/x.svg" width="30" height="30" alt="X" /></a>
+          <a href="https://github.com/RossoneriZhao" target="_blank"><img src="fig/github.svg" width="30" height="30" alt="GitHub" /></a>
+          <a href="https://juntuzhao.run/doc/eng/cv.pdf" target="_blank"><img src="fig/cv.svg" width="30" height="30" alt="CV" /></a>
         </div>
+      </div>
     </section>
 
-    <section class="main">
-        <div class="text-center">
-            <h2>Education</h2>
-            <div class="education-section">
-                <div class="education-logo">
-                    <img src="fig/logo.png" alt="Logo">
-                </div>
-                <div>
-                    <p>Time: <span class="italic">Sept. 2023 - Present</span></p>
-                    <p>Degree: Ph.D. in Computer Science</p>
-                    <p>Institution: Shanghai Jiao Tong University</p>
-                </div>
-            </div>
-
-            <div class="education-section">
-                <div class="education-logo">
-                    <img src="fig/logo.png" alt="Logo">
-                </div>
-                <div>
-                    <p>Time: <span class="italic">Sept. 2019 - Jun. 2023</span></p>
-                    <p>Degree: B.S. in Artificial Intelligence</p>
-                    <p>Institution: Shanghai Jiao Tong University</p>
-                </div>
-            </div>
+    <!-- About -->
+    <section id="about" aria-label="About">
+      <div class="about-wrap">
+        <h1 class="about-title">About</h1>
+        <div class="about-body">
+          <p>I am Juntu Zhao (赵峻图), a Ph.D. student in Artificial Intelligence at Shanghai Jiao Tong University.</p>
+          <p>
+            My research focuses on 
+            <span style="color:#9b1c1c; font-weight:600;">Embodied Intelligence</span>, (especially Vision-Language-Action Models), <span style="color:#9b1c1c; font-weight:600;">multimodal LLMs</span>, and I'm also interested in <span style="color:#9b1c1c; font-weight:600;">AI for Science</span>.
+          </p>
+          <p>I was graduated with a bachelor's degree from the Artificial Intelligence Excellent Talents Pilot Class at Shanghai Jiao Tong University. I was an outstanding graduate of Shanghai Jiao Tong University and started pursuing Ph.D. at Shanghai Jiao Tong University in September 2023.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" aria-label="Education">
+      <div class="edu-wrap">
+        <h1 class="edu-title">Education</h1>
+        <div class="edu-cards">
+
+          <div class="card">
+            <div class="edu-left">
+              <h3>Ph.D. in Computer Science</h3>
+              <p class="school">Shanghai Jiao Tong University</p>
+            </div>
+            <div class="edu-right">2023 – present</div>
+          </div>
+
+          <div class="card">
+            <div class="edu-left">
+              <h3>B.S. in Artificial Intelligence</h3>
+              <p class="school">Shanghai Jiao Tong University</p>
+            </div>
+            <div class="edu-right">2019 – 2023</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Papers -->
+    <section id="papers" aria-label="Papers">
+      <div class="paper-wrap">
+        <h1 class="paper-title">Papers</h1>
+        <div class="paper-cards">
+
+
+          <a href="https://openreview.net/forum?id=GQZI346irT#discussion"
+            target="_blank" class="paper-link" rel="noopener">
+            <div class="card">
+              <div class="paper-left">
+                <h3>Saying the Unsaid: Revealing the Hidden Language of Multimodal Systems Through Test-Time Telephone Games</h3>
+                <p class="paper-right"><span style="color:#4d525c; font-weight:1000;">Juntu Zhao</span>, Jialing Zhang, Chongxuan Li and Dequan Wang</p>
+                <p class="conference">NeurIPS 2025 Workshop MTI-LLM</p>
+              </div>
+            </div>
+          </a>
+
+
+          <a href="https://statefreepolicy.github.io"
+            target="_blank" class="paper-link" rel="noopener">
+            <div class="card">
+              <div class="paper-left">
+                <h3>Do You Need Proprioceptive States in Visuomotor Policies?</h3>
+                <p class="paper-right"><span style="color:#4d525c; font-weight:1000;">Juntu Zhao</span>, Wenbo Lu, Di Zhang, Yufeng Liu, Yushen Liang, Tianluo Zhang, Yifeng Cao, Junyuan Xie, Yingdong Hu, Shengjie Wang, Junliang Guo, Dequan Wang and Yang Gao</p>
+                <p class="conference">arXiv preprint 2509.18644</p>
+              </div>
+            </div>
+          </a>
+          
+
+          <a href="https://lcmis.github.io"
+            target="_blank" class="paper-link" rel="noopener">
+            <div class="card">
+              <div class="paper-left">
+                <h3>Lost in Translation: Latent Concept Misalignment in Text-to-Image Diffusion Models</h3>
+                <p class="paper-right"><span style="color:#4d525c; font-weight:1000;">Juntu Zhao</span>, Junyu Deng, Yixin Ye, Chongxuan Li, Zhijie Deng and Dequan Wang</p>
+                <p class="conference">ECCV 2024</p>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
     </section>
 
 
-    <section class="main">
-        <div class="text-center-main">
-            <h2>About Me</h2>
-            <p>I'm Juntu Zhao, graduated with a bachelor's degree from the Artificial Intelligence Excellent Talents Pilot Class at Shanghai Jiao Tong University. I am an outstanding graduate of Shanghai Jiao Tong University and started pursuing Ph.D. at Qingyuan Artificial Intelligence Research Institute at Shanghai Jiao Tong University in September 2023. My research focuses on the Embodied AI and Vision Language Models.</p>
+    <!-- Athlete -->
+    <section id="athlete" aria-label="Athlete">
+      <div class="about-wrap">
+        <h1 class="about-title">Athlete</h1>
+        <div class="about-body">
+            I am the captain, assistant coach, and sprint team leader of the Shanghai Jiao Tong University Track-and-Field Team. I am the record holder of the 
+            <span style="color:#9b1c1c; font-weight:600;">men's 100 m race</span> 
+            and 
+            <span style="color:#9b1c1c; font-weight:600;">4×100 m relay</span> 
+            at Shanghai Jiao Tong University. I won the 
+            <span style="color:#9b1c1c; font-weight:600;">bronze medal</span> 
+            in the men's 100 m race at the 2024 Shanghai Student Games (University Track),
+            and the 
+            <span style="color:#9b1c1c; font-weight:600;">golden medal</span> 
+            in the men's 4×100 m relay at the 2025 Shanghai University Athletics League Cup.
+            Go to 
+            <a href="https://space.bilibili.com/514162009?spm_id_from=333.1007.0.0"
+              target="_blank"
+              style="color:#9b1c1c; font-weight:600; font-style:italic; text-decoration:underline;">
+              bilibili
+            </a>
+            for my ShowTime!
         </div>
+      </div>
     </section>
+  
+  </main>
 
-    <section class="main">
-        <div class="text-center-pub">
-            <h2>Publications</h2>
-            <h3>Conference Proceedings</h3>
-            <div class="publication-entry">
-                <div class="publication-index">
-                    <p class="italic gray">1</p>
-                </div>
-                <div class="publication-details">
-                    <p class="bold"><a href="https://lcmis.github.io">Lost in Translation: Latent Concept Misalignment in Text-to-Image Diffusion Models</a></p>
-                    <p><span class="bold">Juntu Zhao</span>, Junyu Deng<sup>*</sup>, Yixin Ye<sup>*</sup>, Chongxuan Li, Zhijie Deng<sup>†</sup>, Dequan Wang<sup>†</sup></p>
-                    <p class="italic">European Conference on Computer Vision (ECCV), 2024</p>
-                </div>
-            </div>
+  <footer>© <span id="year"></span> Juntu Zhao. All rights reserved.</footer>
 
-            <!--
-            <h3>Preprints</h3>
-            <div class="publication-entry">
-                <div class="publication-index">
-                    <p class="italic gray">1</p>
-                </div>
-                <div class="publication-details">
-                    <p class="bold"><a href="https://lcmis.github.io">Lost in Translation: Latent Concept Misalignment in Text-to-Image Diffusion Models</a></p>
-                    <p><span class="bold">Juntu Zhao</span>, Junyu Deng<sup>*</sup>, Yixin Ye<sup>*</sup>, Chongxuan Li, Zhijie Deng<sup>†</sup>, Dequan Wang<sup>†</sup></p>
-                    <p class="italic">European Conference on Computer Vision (ECCV), 2024</p>
-                </div>
-            </div>
-            -->
-        </div>
-    </section>
-
-    <section class="main">
-        <div class="text-center-main">
-            <h2>Athlete Career</h2>
-            <p>I am the captain, assistant coach and sprint team leader of the Shanghai Jiao Tong University Track-and-Field team. I am the record holder of men's 100m race and 4x100m relay at Shanghai Jiao Tong University. I won the bronze medal in the men's 100m race at 2024 Shanghai Student Games (University Track) and the golden medal in the men's 4x100m relay at 2025 Shanghai University Athletics League Cup. Go to <a href="https://www.bilibili.com/video/BV1wFu7ewEyB/?vd_source=0fa934c6169a9709f158c4adb1ddbdce#reply112473654493184"><span class="italic">bilibili</span></a> for my ShowTime!</p>
-        </div>
-    </section>
-
-    <footer>
-        <p><sup>*</sup> Equal contribution. <sup>†</sup> Corresponding authors.</p>
-        <p>&copy; 2024 Juntu Zhao. All rights reserved.</p>
-    </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
