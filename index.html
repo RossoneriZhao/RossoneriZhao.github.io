@@ -147,6 +147,7 @@
       line-height: 1.8;
       color: #334155;
       letter-spacing: 0.2px;
+      text-align: justify;
     }
 
     .about-body p {
@@ -160,7 +161,8 @@
 
 
     /* ---- Education 部分 ---- */
-    #education {
+    #education,
+    #intern {
       display: flex;
       justify-content: center;
     }
@@ -175,7 +177,7 @@
     .edu-wrap {
       width: min(100% - 60px, 1280px);
       display: grid;
-      grid-template-columns: 250px 1fr;
+      grid-template-columns: 275px 1fr;
       gap: clamp(24px, 5vw, 56px);
       align-items: start;
     }
@@ -228,6 +230,13 @@
       margin-top: 6px;
       font-size: 17px;
       color: #9b1c1c; /* 米兰红 */
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .edu-left .position {
+      margin-top: 6px;
+      font-size: 17px;
+      color: #0f172a; /* 纯黑 */
       font-family: "JetBrains Mono", monospace;
     }
 
@@ -358,6 +367,7 @@
       <a href="#about">About</a>
       <a href="#education">Education</a>
       <a href="#papers">Papers</a>
+      <a href="#intern">Internships</a>
       <a href="#athlete">Athlete</a>
     </div>
   </nav>
@@ -387,16 +397,20 @@
       <div class="about-wrap">
         <h1 class="about-title">About</h1>
         <div class="about-body">
-          <p>I am Juntu Zhao (赵峻图), a Ph.D. student in Artificial Intelligence at Shanghai Jiao Tong University, advised by
+          <p>I am Juntu Zhao (赵峻图), a Ph.D. student in Artificial Intelligence at Shanghai Jiao Tong University (SJTU), advised by
             <a href="https://dequan.wang" target="_blank" style="text-decoration:none;">
-              <span style="color:#9b1c1c; font-weight:600; font-style:italic; text-decoration:underline;">Dequan Wang</span>
-            </a>.
+              <span style="font-weight:600; font-style:italic; text-decoration:underline;">Dequan Wang</span>.
+            </a> My research focuses on <span style="color:#9b1c1c; font-weight:600;">Embodied Intelligence</span> (especially Vision-Language-Action Models) and <span style="color:#9b1c1c; font-weight:600;">multimodal LLMs</span>.
           </p>
-          <p>
-            My research focuses on 
-            <span style="color:#9b1c1c; font-weight:600;">Embodied Intelligence</span>, (especially Vision-Language-Action Models), <span style="color:#9b1c1c; font-weight:600;">multimodal LLMs</span>, and I'm also interested in <span style="color:#9b1c1c; font-weight:600;">AI for Science</span>.
+          <p>Since June 2025, I've been a research intern at
+            <a href="https://www.spirit-ai.com" target="_blank" style="text-decoration:none;">
+              <span style="color:#9b1c1c; font-weight:600; font-style:italic; text-decoration:underline;">Spirit AI</span>,
+            </a>team of Spirit VLA, working with
+            <a href="http://people.iiis.tsinghua.edu.cn/~gaoyang/yang-gao.weebly.com/index.html" target="_blank" style="text-decoration:none;">
+              <span style="font-weight:600; font-style:italic; text-decoration:underline;">Yang Gao</span>.
+            </a>
           </p>
-          <p>I was graduated with a bachelor's degree from the Artificial Intelligence Excellent Talents Pilot Class at Shanghai Jiao Tong University. I was an outstanding graduate of Shanghai Jiao Tong University and started pursuing Ph.D. at Shanghai Jiao Tong University in September 2023.</p>
+          <p>I graduated with a bachelor's degree from the Artificial Intelligence Excellent Talents Pilot Class at SJTU. I was an outstanding graduate of SJTU and started pursuing Ph.D. at SJTU (Department of Computer Science) in September 2023.</p>
         </div>
       </div>
     </section>
@@ -473,17 +487,37 @@
       </div>
     </section>
 
+    <section id="intern" aria-label="Internships">
+      <div class="edu-wrap">
+        <h1 class="edu-title">Internships</h1>
+        <div class="edu-cards">
+
+          <div class="card">
+            <div class="edu-left">
+              <h3>Spirit AI</h3>
+              <p class="school">Team of Spirit VLA</p>
+            </div>
+            <div class="edu-right">2025 – present</div>
+            <div class="edu-left">
+              <p class="position">• The first policy (Spirit-v1.5) beats π<sub>0.5</sub> on RoboChallenge, Core Contributions.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
 
     <!-- Athlete -->
     <section id="athlete" aria-label="Athlete">
       <div class="about-wrap">
         <h1 class="about-title">Athlete</h1>
         <div class="about-body">
-            I am the captain, assistant coach, and sprint team leader of the Shanghai Jiao Tong University Track-and-Field Team. I am the record holder of the 
+            I am the captain, assistant coach, and sprint team leader of the SJTU Track-and-Field Team. I am the record holder of the 
             <span style="color:#9b1c1c; font-weight:600;">men's 100 m race</span> 
             and 
             <span style="color:#9b1c1c; font-weight:600;">4×100 m relay</span> 
-            at Shanghai Jiao Tong University. I won the 
+            at SJTU. I won the 
             <span style="color:#9b1c1c; font-weight:600;">bronze medal</span> 
             in the men's 100 m race at the 2024 Shanghai Student Games (University Track),
             and the 
