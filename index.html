@@ -105,8 +105,27 @@
     .hero h1 { font-size: clamp(36px, 6vw, 64px); }
     .hero p { font-size: clamp(16px, 2.4vw, 20px); max-width: 720px; }
     .socials { display: flex; gap: 14px; margin-top: 18px; align-items: center; }
-    .socials a { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); }
+    .socials a { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); }
     .socials a:hover { background: rgba(255,255,255,.12); }
+    .socials a[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      padding: 6px 10px;
+      background: #333;
+      color: #fff;
+      font-size: 13px;
+      white-space: nowrap;
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+    }
+    .socials a[data-tooltip]:hover::after {
+      opacity: 1;
+    }
     .hero-title { display: inline-flex; align-items: center; gap: 10px; }
     .milan-logo { height: 1em; width: auto; vertical-align: middle; transform: translateY(1px); }
 
@@ -161,6 +180,7 @@
 
 
     /* ---- Education 部分 ---- */
+    #news,
     #education,
     #intern {
       display: flex;
@@ -365,6 +385,7 @@
     <div class="nav-inner">
       <a href="#home">Home</a>
       <a href="#about">About</a>
+      <a href="#news">News</a>
       <a href="#education">Education</a>
       <a href="#papers">Papers</a>
       <a href="#intern">Internships</a>
@@ -383,11 +404,11 @@
         </h1>
         <p>Ph.D. Student in Artificial Intelligence at Shanghai Jiao Tong University</p>
         <div class="socials">
-          <a href="mailto:arossoneri@sjtu.edu.cn" title="Email"><img src="fig/email.svg" width="30" height="30" alt="Email" /></a>
-          <a href="https://juntuzhao.run/doc/eng/cv.pdf" target="_blank"><img src="fig/cv.svg" width="30" height="30" alt="CV" /></a>
-          <a href="https://github.com/RossoneriZhao" target="_blank"><img src="fig/github.svg" width="30" height="30" alt="GitHub" /></a>
-          <a href="https://x.com/JTZhao137036" target="_blank"><img src="fig/x.svg" width="30" height="30" alt="X" /></a>
-          <a href="https://space.bilibili.com/514162009?spm_id_from=333.1007.0.0" target="_blank"><img src="fig/bilibili.svg" width="30" height="30" alt="Bilibili" /></a>
+          <a href="mailto:arossoneri@sjtu.edu.cn" data-tooltip="Email"><img src="fig/email.svg" width="30" height="30" alt="Email" /></a>
+          <a href="https://juntuzhao.run/doc/cv.pdf" target="_blank" data-tooltip="CV.pdf"><img src="fig/cv.svg" width="30" height="30" alt="CV" /></a>
+          <a href="https://github.com/RossoneriZhao" target="_blank" data-tooltip="GitHub"><img src="fig/github.svg" width="30" height="30" alt="GitHub" /></a>
+          <a href="https://x.com/JTZhao137036" target="_blank" data-tooltip="X (Twitter)"><img src="fig/x.svg" width="30" height="30" alt="X" /></a>
+          <a href="https://space.bilibili.com/514162009?spm_id_from=333.1007.0.0" target="_blank" data-tooltip="Bilibili"><img src="fig/bilibili.svg" width="30" height="30" alt="Bilibili" /></a>
         </div>
       </div>
     </section>
@@ -411,6 +432,24 @@
             </a>
           </p>
           <p>I graduated with a bachelor's degree from the Artificial Intelligence Excellent Talents Pilot Class at SJTU. I was an outstanding graduate of SJTU and started pursuing Ph.D. at SJTU (Department of Computer Science) in September 2023.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section id="news" aria-label="News">
+      <div class="edu-wrap">
+        <h1 class="edu-title">🔥 News</h1>
+        <div class="edu-cards">
+
+          <div class="card">
+            <div class="edu-left">
+              <h3>Spirit-v1.5</h3>
+              <div class="edu-right">Jan 2026</div>
+              <p class="position">🚀 <a href="https://github.com/Spirit-AI-Team/spirit-v1.5" target="_blank" style="color:#9b1c1c; font-weight:600; text-decoration:underline;">Spirit-v1.5</a> was released! Check how we achieved SoTA on RoboChallenge Table30 benchmark: <a href="https://www.spirit-ai.com/en/blog/spirit-v1-5" target="_blank" style="color:#9b1c1c; font-weight:600; text-decoration:underline;">Blog</a>.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -514,7 +553,8 @@
       <div class="about-wrap">
         <h1 class="about-title">Athlete</h1>
         <div class="about-body">
-            I am the captain, assistant coach, and sprint team leader of the SJTU Track-and-Field Team. I am the record holder of the 
+            I am also an amateur sprint athlete.<br>
+            I'm the captain, assistant coach, and sprint team leader of the SJTU Track-and-Field Team. I am the record holder of the 
             <span style="color:#9b1c1c; font-weight:600;">men's 100 m race</span> 
             and 
             <span style="color:#9b1c1c; font-weight:600;">4×100 m relay</span> 
